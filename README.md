@@ -15,3 +15,8 @@ backend:
 
 frontend:
 "ts-node ./build/server.ts"
+
+
+TODO: Add MVP frontend code
+TODO: Add frontend script - "ts-node ./build/server.ts"
+TODO: Try to start both electron and frontend and serve the frontend
