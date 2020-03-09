@@ -1,4 +1,5 @@
 # weather-app
+
 Electron, Reat, Node app
 
 1. set up electron.ts/main.ts for the electron app window
