@@ -9,5 +9,12 @@
         "esModuleInterop": true,
         "jsx": "react",
         "alwaysStrict": true,
-    }
+    },
+    "include": [
+        "main.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
 }

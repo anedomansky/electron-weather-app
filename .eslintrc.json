@@ -30,6 +30,7 @@
         }
     },
     "rules": {
+        "no-console": "off",
         "object-curly-newline": "off",
         "max-len": "off",
         "no-undef": "off",
