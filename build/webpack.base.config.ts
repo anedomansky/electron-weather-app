@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 
 const baseConfig: webpack.Configuration = {
+    target: 'electron-renderer',
     module: {
         rules: [
             {

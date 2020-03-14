@@ -6,6 +6,9 @@
   "scripts": {
     "electron:compile": "tsc --skipLibCheck && electron .",
     "electron:start": "cross-env NODE_ENV=dev nodemon -e ts --exec \"npm run electron:compile\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
     "react:start": "ts-node ./build/server.ts"
   },
   "repository": {
@@ -18,16 +21,14 @@
   "bugs": {
     "url": "https://github.com/anedomansky/weather-app/issues"
   },
-  "homepage": "https://github.com/anedomansky/weather-app#readme",
   "dependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/electron": "^1.6.10",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-router-config": "^5.0.1",
     "@types/react-router-dom": "^5.1.3",
     "dotenv": "^8.2.0",
-    "electron": "^8.1.1",
+    "electron-unhandled": "^3.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-config": "^5.1.1",
@@ -51,8 +52,9 @@
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
+    "electron": "^8.1.1",
+    "electron-builder": "^22.4.1",
     "electron-devtools-installer": "^2.2.4",
-    "electron-reload": "^1.5.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -83,5 +85,15 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2"
+  },
+  "build": {
+    "appId": "weather-app",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    }
   }
 }

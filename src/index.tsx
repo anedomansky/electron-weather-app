@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 // import './index.scss';
 import App from './components/app/App';
 
@@ -8,7 +8,7 @@ import App from './components/app/App';
 declare let module: __WebpackModuleApi.Module;
 
 ReactDOM.render(
-    <BrowserRouter><App /></BrowserRouter>,
+    <App />,
     document.getElementById('app'),
 );
 

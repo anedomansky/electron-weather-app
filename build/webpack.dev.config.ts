@@ -18,13 +18,16 @@ const devConfig: webpack.Configuration = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist'),
-        publicPath: '/',
+        publicPath: '/', // for production: publicPath: './',
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(), // remove for production build
         new HTMLWebpackPlugin({
+            // meta: {
+            //     'Content-Security-Policy': { 'http-equiv': 'Content-Security-Policy', content: "script-src * data: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'" },
+            // }, not working correctly - still getting the unsafe-eval warning
             inject: true,
-            title: 'Content-Aggregator',
+            title: 'Weather-App',
             template: path.resolve(__dirname, '../src/index.html'),
             // favicon: path.resolve(__dirname, '../src/assets/icons/calculator.png'),
         }),

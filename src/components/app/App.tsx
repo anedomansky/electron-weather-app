@@ -9,7 +9,7 @@ const App: React.FC = () => (
     <div className="content" role="application">
         {/* <Header /> */}
         <main role="main">
-            ELECTRON WITH REACT!!
+            ELECTRON WITH REACT!
             {/* {renderRoutes(routes)} */}
         </main>
         {/* <Footer /> */}
