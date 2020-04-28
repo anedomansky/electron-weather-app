@@ -24,19 +24,11 @@ const baseConfig: webpack.Configuration = {
                 },
             },
             {
-                test: /\.(png|jpg|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            // if the file is bigger than that,
-                            // url-loader falls back to file-loader
-                            // and creates a file instead of a dataUrl
-                            // - needs file-loader
-                            limit: 10000,
-                        },
-                    },
-                ],
+                test: /\.(jpg|png|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[hash].[ext]',
+                },
             },
         ],
     },
