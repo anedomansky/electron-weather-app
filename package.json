@@ -2,14 +2,16 @@
   "name": "weather-app",
   "version": "1.0.0",
   "description": "Electron, Reat, Node app",
-  "main": "./dist/main.js",
+  "main": "./dist/electron.js",
   "scripts": {
-    "electron:compile": "tsc --skipLibCheck && electron .",
+    "electron:compile": "tsc --skipLibCheck --project \"./main/tsconfig.json\" && electron .",
+    "electron:build": "tsc --skipLibCheck --project \"./main/tsconfig.json\"",
     "electron:start": "cross-env NODE_ENV=dev nodemon -e ts --exec \"npm run electron:compile\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
-    "react:start": "ts-node ./build/server.ts"
+    "react:start": "ts-node ./build/server.ts",
+    "react:build": "webpack --config ./build/webpack.prod.config.ts"
   },
   "repository": {
     "type": "git",

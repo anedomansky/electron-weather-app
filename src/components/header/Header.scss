@@ -2,20 +2,31 @@ header {
     background: #203943 0% 0% no-repeat padding-box;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    & .header__search-icon {
-        flex: 10%;
+    & .a11y-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 
-    & h1 {
-        flex: 80%;
-        font-size: 2.5rem;
-        line-height: 45px;
-        margin: 0;
-        text-align: center;
+    & .header__search-icon {
+        // flex: 10%;
+    }
+
+    & .header__heading {
+        // flex: 80%;
+
+        & h1 {
+            font-size: 2.5rem;
+            line-height: 45px;
+            margin: 0;
+            text-align: center;
+            color: #FFFFFF;
+        }
     }
 
     & .header__favorite-icon {
-        flex: 10%;
+        // flex: 10%;
     }
 }
