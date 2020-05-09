@@ -1,0 +1,17 @@
+@import "../../mixins/Mixins.scss";
+
+.landing-page {
+    display: grid;
+    grid-template-areas: 
+    ". . . ."
+    ". content content ."
+    ". . . .";
+
+    .landing-page__content {
+        grid-area: content;
+    }
+
+    & .a11y-btn {
+        @include a11y-btn;
+    }
+}

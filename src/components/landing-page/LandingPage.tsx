@@ -1,9 +1,13 @@
 import React from 'react';
+import Search from '../search/Search';
+import './LandingPage.scss';
 
 const LandingPage: React.FC = () => (
-    <>
-        <h1>LandingPage works!</h1>
-    </>
+    <article className="landing-page">
+        <div className="landing-page__content">
+            <Search />
+        </div>
+    </article>
 );
 
 export default LandingPage;

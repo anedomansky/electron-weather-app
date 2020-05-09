@@ -7,12 +7,12 @@ import Header from '../header/Header';
 
 const App: React.FC = () => (
     <div className="content" role="application">
-        <Header />
-        <main role="main">
-            <BrowserRouter>
+        <BrowserRouter>
+            <Header />
+            <main role="main">
                 {renderRoutes(routes)}
-            </BrowserRouter>
-        </main>
+            </main>
+        </BrowserRouter>
     </div>
 );
 

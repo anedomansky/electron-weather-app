@@ -1,0 +1,22 @@
+@import "../../mixins/Mixins.scss";
+
+.search {
+    display: flex;
+    justify-content: center;
+
+    & .search__input {
+        height: 4rem;
+        background-color: #203943;
+        color: #ffffff;
+        font-size: 2rem;
+        line-height: 3.5rem;
+        border: none;
+        padding: 0.5rem;
+        float: left;
+    }
+
+    & .a11y-btn {
+        @include a11y-btn;
+        display: inline-block;
+    }
+}
