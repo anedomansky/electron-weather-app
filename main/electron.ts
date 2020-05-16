@@ -26,8 +26,8 @@ const createWindow = async (): Promise<void> => {
     }
 
     window = new BrowserWindow({
-        width: 900,
-        height: 600,
+        width: 1000,
+        height: 800,
         webPreferences: {
             nodeIntegration: true,
         },

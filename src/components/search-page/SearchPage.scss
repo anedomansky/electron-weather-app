@@ -1,0 +1,18 @@
+@import "../../mixins/Mixins.scss";
+
+.search-page {
+    display: grid;
+    grid-template-areas: 
+    ". . close ."
+    ". content content ."
+    ". . . .";
+
+    & .a11y-btn {
+        @include a11y-btn;
+        grid-area: close;
+    }
+
+    & .search-page__content {
+        grid-area: content;
+    }
+}

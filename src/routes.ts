@@ -12,7 +12,7 @@ const routes: RouteConfig[] = [
     {
         component: ResultPage,
         exact: true,
-        path: '/result', // better to have /result/:location ???
+        path: '/result/:location',
     },
     {
         component: SearchPage,
