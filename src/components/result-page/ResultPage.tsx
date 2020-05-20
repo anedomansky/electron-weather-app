@@ -1,26 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import WeatherService from '../../services/WeatherService';
+import { IWeatherData } from '../../interfaces/IWeatherData';
 
 const ResultPage: React.FC = () => {
     const { location } = useParams();
+    const [fetchError, setFetchError] = useState<boolean>(false);
+    const [consolidatedWeatherData, setConsolidatedWeatherData] = useState<IWeatherData[] | null>(null);
+    const [updating, setUpdating] = useState<boolean>(true);
 
     useEffect(() => {
         // needs a proxy in order to fetch the weather data.
         (async function getData(): Promise<void> {
-            const woeidResponseRaw = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${location}`);
-            const woeidResponse = await woeidResponseRaw.json();
-            const { woeid } = await woeidResponse[0];
-            console.log(woeid);
-            const weatherDataResponseRaw = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}`);
-            const weatherDataResponse = await weatherDataResponseRaw.json();
-            console.log(weatherDataResponse);
+            try {
+                const weatherData = await WeatherService.getInstance().getWeatherData(location);
+                setConsolidatedWeatherData(weatherData);
+            } catch (error) {
+                console.error(error);
+                setFetchError(true);
+            } finally {
+                setUpdating(false);
+            }
         }());
-    });
+    }, []);
 
     return (
         <>
-            <h1>ResultPage works!</h1>
-            <p>{location}</p>
+            {updating ? <h1>Loading...</h1> : (
+                <>
+                    {fetchError ? (
+                        <h1>No Weather Data found for this location... Please try another location.</h1>
+                    ) : (
+                        <>
+                            <h1>ResultPage works!!</h1>
+                            <p>{location}</p>
+                            <p>{consolidatedWeatherData && consolidatedWeatherData[0].the_temp}</p>
+                        </>
+                    )}
+                </>
+            )}
+
         </>
     );
 };

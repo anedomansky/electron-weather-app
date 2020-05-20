@@ -12,7 +12,7 @@ const Header: React.FC = () => {
             <Link to="/" tabIndex={0} className="header__heading a11y-btn"><h1>Weather-App</h1></Link>
             <button type="button" tabIndex={0} className="header__favorite-icon a11y-btn"><img src={favoriteIcon} alt="Favorite" height="60" /></button>
         </header>
-    )
+    );
 };
 
 export default Header;
