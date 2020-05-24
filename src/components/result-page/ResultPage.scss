@@ -1,0 +1,11 @@
+.result-page {
+    display: grid;
+    grid-template-areas: 
+    ". content content ."
+    ". content content ."
+    ". content content .";
+
+    & .result-page__content {
+        grid-area: content;
+    }
+}

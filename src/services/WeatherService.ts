@@ -8,6 +8,7 @@ class WeatherService {
     private static instance: WeatherService;
 
     constructor() {
+        // needs a proxy in order to fetch the weather data.
         this.woeidBaseUrl = 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=';
         this.weatherDataBaseUrl = 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/';
     }

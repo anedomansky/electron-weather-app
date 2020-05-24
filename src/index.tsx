@@ -7,7 +7,7 @@ import App from './components/app/App';
 declare let module: __WebpackModuleApi.Module;
 
 ReactDOM.render(
-    <App />,
+    <React.StrictMode><App /></React.StrictMode>,
     document.getElementById('app'),
 );
 

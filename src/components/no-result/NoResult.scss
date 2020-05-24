@@ -1,0 +1,21 @@
+.no-result {
+    display: grid;
+    grid-template-areas: 
+    ". . . ."
+    ". content content ."
+    ". . . .";
+
+    & .no-result__content {
+        grid-area: content;
+
+        & h1 {
+            color: #203943;
+            text-align: center;
+            font-size: 2rem;
+
+            & a {
+                color: #66AAB5;
+            }
+        }
+    }
+}

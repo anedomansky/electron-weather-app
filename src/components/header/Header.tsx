@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import searchIcon from '../../assets/icons/search_header.svg';
 import favoriteIcon from '../../assets/icons/favorite.svg';
 
+// TODO: Add the favorite drop down menu
 const Header: React.FC = () => {
     const location = useLocation();
     return (

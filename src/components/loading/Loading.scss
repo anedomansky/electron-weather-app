@@ -1,0 +1,17 @@
+.loading {
+    display: grid;
+    grid-template-areas: 
+    ". . . ."
+    ". content content ."
+    ". . . .";
+
+    & .loading__content {
+        grid-area: content;
+
+        & h1 {
+            color: #203943;
+            text-align: center;
+            font-size: 2rem;
+        }
+    }
+}
