@@ -10,9 +10,19 @@
         color: #ffffff;
         font-size: 2rem;
         line-height: 3.5rem;
-        border: none;
+        border: 1px solid #203943;
+        border-radius: 15px;
         padding: 0.5rem;
         float: left;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    & .search__submit img {
+        width: 60px;
+        height: auto;
     }
 
     & .a11y-btn {

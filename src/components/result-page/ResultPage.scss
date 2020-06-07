@@ -1,11 +1,24 @@
 .result-page {
     display: grid;
     grid-template-areas: 
-    ". content content ."
-    ". content content ."
-    ". content content .";
+    ". details details add"
+    ". details details ."
+    "preview preview preview preview";
 
-    & .result-page__content {
-        grid-area: content;
+    & .result-page__details {
+        grid-area: details;
+    }
+
+    & .result-page__add {
+        grid-area: add;
+
+        & img {
+            width: 60px;
+            height: auto;
+        }
+    }
+
+    & .result-page__preview {
+        grid-area: preview;
     }
 }

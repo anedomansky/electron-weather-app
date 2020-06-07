@@ -14,6 +14,11 @@ header {
         visibility: hidden;
     }
 
+    & .header__search-icon img {
+        height: auto;
+        width: 60px;
+    }
+
     & .header__heading {
         text-decoration: none;
 
@@ -29,6 +34,15 @@ header {
     & .header__favorite-dropdown {
         position: relative;
         display: inline-block;
+
+        &:hover .dropdown-list {
+            display: block;
+        }
+
+        & .a11y-btn img {
+            width: 60px;
+            height: auto;
+        }
 
         & .dropdown-list {
             margin: 0;
