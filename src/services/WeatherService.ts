@@ -21,10 +21,20 @@ class WeatherService {
     }
 
     public async getWeatherData(location?: string): Promise<IWeatherData[]> {
-        const woeidResponseRaw = await fetch(`${this.woeidBaseUrl}${location}`);
+        const woeidResponseRaw = await fetch(`${this.woeidBaseUrl}${location}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+        });
         const woeidResponse = await woeidResponseRaw.json();
         const { woeid } = await woeidResponse[0];
-        const weatherDataResponseRaw = await fetch(`${this.weatherDataBaseUrl}${woeid}`);
+        const weatherDataResponseRaw = await fetch(`${this.weatherDataBaseUrl}${woeid}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+        });
         const weatherDataResponse = await weatherDataResponseRaw.json();
         const weatherDataConsolidated: IWeatherData[] = weatherDataResponse.consolidated_weather;
         console.log(weatherDataConsolidated);

@@ -9,11 +9,11 @@ import baseConfig from './webpack.base.config';
 const prodConfig: webpack.Configuration = {
     devtool: 'source-map',
     entry: {
-        app: ['webpack-hot-middleware/client', './src/index.tsx'],
+        app: ['./src/index.tsx'],
     },
     mode: 'production',
     optimization: {
-        noEmitOnErrors: true,
+        noEmitOnErrors: false,
     },
     output: {
         filename: '[name].bundle.js',
