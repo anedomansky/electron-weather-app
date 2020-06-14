@@ -1,5 +1,6 @@
 import React from 'react';
 import { IWeatherData } from '../../interfaces/IWeatherData';
+import './WeatherDetails.scss';
 
 interface Props {
     details: IWeatherData | null;
@@ -7,8 +8,8 @@ interface Props {
 }
 
 const WeatherDetails: React.FC<Props> = ({ details, location }) => (
-    <>
-        <p>{location}</p>
+    <div className="details">
+        <span>{location}</span>
         {details && (
             <>
                 <p>{details.min_temp}</p>
@@ -20,7 +21,7 @@ const WeatherDetails: React.FC<Props> = ({ details, location }) => (
                 <p>{details.humidity}</p>
             </>
         )}
-    </>
+    </div>
 );
 
 export default WeatherDetails;

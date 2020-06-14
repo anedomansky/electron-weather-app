@@ -41,14 +41,22 @@ const ResultPage: React.FC = () => {
                     ) : (
                         <article className="result-page">
                             <div className="result-page__details">
-                                <h1>ResultPage works!!</h1>
                                 <WeatherDetails location={location} details={consolidatedWeatherData && consolidatedWeatherData[0]} />
                             </div>
                             <div className="result-page__add">
                                 <img src={addIcon} alt="Add" />
                             </div>
-                            <div className="result-page__preview">
-                                <WeatherPreview />
+                            <div className="result-page__preview--1">
+                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
+                            </div>
+                            <div className="result-page__preview--2">
+                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
+                            </div>
+                            <div className="result-page__preview--3">
+                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
+                            </div>
+                            <div className="result-page__preview--4">
+                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
                             </div>
                         </article>
                     )}

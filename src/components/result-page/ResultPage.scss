@@ -1,9 +1,11 @@
 .result-page {
+    padding: 1rem;
     display: grid;
     grid-template-areas: 
-    ". details details add"
-    ". details details ."
-    "preview preview preview preview";
+    ". details details details details add"
+    ". details details details details ."
+    ". preview-1 preview-2 preview-3 preview-4 .";
+    grid-gap: 1rem;
 
     & .result-page__details {
         grid-area: details;
@@ -11,6 +13,7 @@
 
     & .result-page__add {
         grid-area: add;
+        padding-left: 1rem;
 
         & img {
             width: 60px;
@@ -18,7 +21,19 @@
         }
     }
 
-    & .result-page__preview {
-        grid-area: preview;
+    & .result-page__preview--1 {
+        grid-area: preview-1;
+    }
+
+    & .result-page__preview--2 {
+        grid-area: preview-2;
+    }
+
+    & .result-page__preview--3 {
+        grid-area: preview-3;
+    }
+
+    & .result-page__preview--4 {
+        grid-area: preview-4;
     }
 }
