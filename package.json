@@ -4,8 +4,8 @@
   "description": "Electron, Reat, Node app",
   "main": "./dist/electron.js",
   "scripts": {
-    "electron:compile": "tsc --skipLibCheck --project \"./main/tsconfig.json\" && electron .",
-    "electron:build": "tsc --skipLibCheck --project \"./main/tsconfig.json\"",
+    "electron:compile": "tsc --skipLibCheck --project \"./tsconfig.electron.json\" && electron .",
+    "electron:build": "tsc --skipLibCheck --project \"./main/tsconfig.electron.json\"",
     "electron:start": "cross-env NODE_ENV=dev nodemon -e ts --exec \"npm run electron:compile\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
@@ -32,6 +32,7 @@
     "@types/react-router-dom": "^5.1.5",
     "dotenv": "^8.2.0",
     "electron-unhandled": "^3.0.2",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-config": "^5.1.1",

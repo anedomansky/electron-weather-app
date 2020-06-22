@@ -9,6 +9,9 @@ import WeatherPreview from '../weather-preview/WeatherPreview';
 import addIcon from '../../assets/icons/plus.svg';
 import './ResultPage.scss';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { ipcRenderer } = require('electron');
+
 // TODO: Work on the layout
 // TODO: Create the components
 // TODO: Style the components
@@ -19,17 +22,21 @@ const ResultPage: React.FC = () => {
     const [updating, setUpdating] = useState<boolean>(true);
 
     useEffect(() => {
-        (async function getData(): Promise<void> {
-            try {
-                const weatherData = await WeatherService.getInstance().getWeatherData(location);
-                setConsolidatedWeatherData(weatherData);
-            } catch (error) {
-                console.error(error);
-                setFetchError(true);
-            } finally {
-                setUpdating(false);
-            }
-        }());
+        ipcRenderer.send('/getWeatherData', location);
+        ipcRenderer.on('WEATHER_DATA', (event: unknown, weatherData: IWeatherData[]) => {
+            setConsolidatedWeatherData(weatherData);
+            setUpdating(false);
+        });
+        ipcRenderer.on('NO_DATA', (event: unknown, msg: string) => {
+            console.error(msg);
+            setFetchError(true);
+            setUpdating(false);
+        });
+
+        return () => {
+            ipcRenderer.removeAllListeners('WEATHER_DATA');
+            ipcRenderer.removeAllListeners('NO_DATA');
+        };
     }, []);
 
     return (
