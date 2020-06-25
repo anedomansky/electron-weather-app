@@ -7,5 +7,6 @@ module.exports = {
     moduleNameMapper: {
         '^.+\\.(css|less|scss)$': 'identity-obj-proxy', // needed so jest can understand import './App.scss'-like webpack imports
         '^.+\\.svg$': 'jest-svg-transformer',
+        electron: '<rootDir>/src/__mocks__/electronMock.js',
     },
 };
