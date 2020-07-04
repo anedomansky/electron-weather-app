@@ -1,4 +1,4 @@
-import { action, observable, computed, runInAction } from 'mobx';
+import { action, observable, computed } from 'mobx';
 import { IFavorite } from '../interfaces/IFavorite';
 
 class FavoritesStore {
@@ -11,18 +11,25 @@ class FavoritesStore {
     }
 
     @action('Checks the localStorage and updates the store.')
-    getCurrentFavoritesFromLocalStorage(): IFavorite[] {
-        console.log('TODO: Implement me');
+    updateCurrentFavoritesFromLocalStorage(): void {
+        const currentFavorites = JSON.parse(window.localStorage.getItem('favorites') || '[]');
+        this.favorites = currentFavorites;
     }
 
     @action('Adds new favorites to the localStorage and updates the store.')
-    addFavoriteToLocalStorage() {
-        console.log('TODO: Implement me');
+    addFavoriteToLocalStorage(favoriteLocation: string): void {
+        const newFavorite: IFavorite = {
+            location: favoriteLocation.replace(favoriteLocation[0], favoriteLocation[0].toUpperCase()),
+        };
+        window.localStorage.setItem('favorites', JSON.stringify([...this.favorites, newFavorite]));
+        this.updateCurrentFavoritesFromLocalStorage();
     }
 
     @action('Removes a favorite from the localStorage and updates the store.')
-    removeFavoriteFromLocalStorage() {
-        console.log('TODO: Implement me');
+    removeFavoriteFromLocalStorage(favoriteLocation: string): void {
+        const currentFavorites = [...this.favorites].filter((favorite) => favorite.location !== favoriteLocation);
+        window.localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+        this.updateCurrentFavoritesFromLocalStorage();
     }
 }
 

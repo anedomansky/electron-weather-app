@@ -6,6 +6,8 @@ interface Props {
     previewData: IWeatherData | null;
 }
 
+// TODO: Work on the layout
+// TODO: Style the components
 const WeatherPreview: React.FC<Props> = ({ previewData }) => (
     <>
         {previewData && (

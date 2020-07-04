@@ -7,6 +7,8 @@ interface Props {
     location?: string;
 }
 
+// TODO: Work on the layout
+// TODO: Style the components
 const WeatherDetails: React.FC<Props> = ({ details, location }) => (
     <div className="details">
         <div className="details__location">

@@ -7,21 +7,20 @@ import WeatherDetails from '../weather-details/WeatherDetails';
 import WeatherPreview from '../weather-preview/WeatherPreview';
 import addIcon from '../../assets/icons/plus.svg';
 import './ResultPage.scss';
-import { IFavorite } from '../../interfaces/IFavorite';
+import useStores from '../../hooks/useStores';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { ipcRenderer } = require('electron');
 
-// TODO: Work on the layout
-// TODO: Create the components
-// TODO: Style the components
 const ResultPage: React.FC = () => {
+    const { favoritesStore } = useStores();
     const { location } = useParams();
     const [fetchError, setFetchError] = useState<boolean>(false);
     const [consolidatedWeatherData, setConsolidatedWeatherData] = useState<IWeatherData[] | null>(null);
     const [updating, setUpdating] = useState<boolean>(true);
 
     useEffect(() => {
+        setUpdating(true);
         ipcRenderer.send('/getWeatherData', location);
         ipcRenderer.on('WEATHER_DATA', (event: unknown, weatherData: IWeatherData[]) => {
             setConsolidatedWeatherData(weatherData);
@@ -37,14 +36,10 @@ const ResultPage: React.FC = () => {
             ipcRenderer.removeAllListeners('WEATHER_DATA');
             ipcRenderer.removeAllListeners('NO_DATA');
         };
-    }, []);
+    }, [location]);
 
-    const addFavorite = () => {
-        const favorites: string[] = JSON.parse(window.localStorage.getItem('favorites') || '[]');
-        const newFavorite: IFavorite = {
-            location,
-        };
-        window.localStorage.setItem('favorites', JSON.stringify([...favorites, newFavorite]));
+    const addFavorite = (favoriteLocation: string) => {
+        favoritesStore.addFavoriteToLocalStorage(favoriteLocation);
     };
 
     return (
@@ -58,8 +53,16 @@ const ResultPage: React.FC = () => {
                             <div className="result-page__details">
                                 <WeatherDetails location={location} details={consolidatedWeatherData && consolidatedWeatherData[0]} />
                             </div>
-                            <div className="result-page__add" role="button" tabIndex={0} onClick={addFavorite} onKeyDown={() => null}>
-                                <img src={addIcon} alt="Add" />
+                            <div className="result-page__add">
+                                <button
+                                    className="a11y-btn"
+                                    type="button"
+                                    tabIndex={0}
+                                    onClick={() => addFavorite(location)}
+                                    onKeyDown={(event) => (event.key === 'Enter' || event.keyCode === 13 ? addFavorite(location) : null)}
+                                >
+                                    <img src={addIcon} alt="Add" />
+                                </button>
                             </div>
                             <div className="result-page__preview--1">
                                 <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />

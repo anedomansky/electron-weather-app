@@ -7,6 +7,7 @@ const weatherDataBaseUrl = 'https://www.metaweather.com/api/location/';
 
 ipcMain.on('/getWeatherData', async (event, location: string) => {
     try {
+        console.log('/getWeatherData');
         const woeidResponseRaw = await fetch(`${woeidBaseUrl}${location}`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +26,7 @@ ipcMain.on('/getWeatherData', async (event, location: string) => {
         const weatherDataConsolidated: IWeatherData[] = weatherDataResponse.consolidated_weather;
         event.sender.send('WEATHER_DATA', weatherDataConsolidated);
     } catch (error) {
-        console.error(error);
+        console.trace(error);
         event.sender.send('NO_DATA', `No data available: ${error}`);
     }
 });
