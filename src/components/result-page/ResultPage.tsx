@@ -68,13 +68,13 @@ const ResultPage: React.FC = () => {
                                 <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
                             </div>
                             <div className="result-page__preview--2">
-                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
+                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[2]} />
                             </div>
                             <div className="result-page__preview--3">
-                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
+                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[3]} />
                             </div>
                             <div className="result-page__preview--4">
-                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />
+                                <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[4]} />
                             </div>
                         </article>
                     )}

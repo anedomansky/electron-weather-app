@@ -1,6 +1,21 @@
 .preview {
+    padding: 0.5rem;
     border: 1px solid #203943;
     border-radius: 15px;
     box-shadow: 5px 5px 6px #b6b5b5;
     background: #203943 0% 0% no-repeat padding-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+    & .preview__image {
+        width: 100px;
+        height: auto;
+    }
+
+    & span {
+        margin-top: 1rem;
+    }
 }

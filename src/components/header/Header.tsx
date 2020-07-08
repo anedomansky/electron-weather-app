@@ -6,7 +6,6 @@ import FavoritesList from '../favorites-list/FavoritesList';
 
 const Header: React.FC = () => {
     const location = useLocation();
-    console.log(location);
 
     return (
         <header>
