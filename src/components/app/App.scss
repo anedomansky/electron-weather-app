@@ -6,8 +6,9 @@
     display: grid;
     grid-template-areas: 
     "header header  header  header"
-    "main   main    main    main";
-    grid-template-rows: 90px auto;
+    "main   main    main    main"
+    "footer footer footer footer";
+    grid-template-rows: 90px auto min-content;
 }
 
 header {
@@ -18,4 +19,9 @@ main {
     grid-area: main;
     background-color: #EAEAEA;
     display: grid;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #EAEAEA;
 }

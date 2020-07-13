@@ -4,6 +4,7 @@ import { HashRouter } from 'react-router-dom';
 import routes from '../../routes';
 import './App.scss';
 import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
 const App: React.FC = () => (
     <div className="content" role="application">
@@ -12,6 +13,7 @@ const App: React.FC = () => (
             <main role="main">
                 {renderRoutes(routes)}
             </main>
+            <Footer />
         </HashRouter>
     </div>
 );

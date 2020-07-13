@@ -16,7 +16,12 @@ backend:
 frontend:
 "ts-node ./build/server.ts"
 
+TODO:
 
-TODO: Add MVP frontend code
-TODO: Add frontend script - "ts-node ./build/server.ts"
-TODO: Try to start both electron and frontend and serve the frontend
+- wind direction arrows N, NNE, NE, ENE, E, ESE, SE, SSE, S, SSW, SW, WSW, W, WNW, NW, NNW
+- app icon
+- unit tests
+- fix linting errors
+- add linting rules
+- documentation
+- publishing

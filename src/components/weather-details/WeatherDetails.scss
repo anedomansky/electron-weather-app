@@ -1,4 +1,5 @@
 .details {
+    font-size: 2rem;
     background: #203943 0% 0% no-repeat padding-box;
     width: 100%;
     height: 100%;
@@ -14,22 +15,31 @@
 
     & .details__location {
         grid-area: location;
+        padding: 1rem;
     }
 
     & .details__weather {
         grid-area: weather;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     & .details__date {
         grid-area: date;
+        text-align: right;
+        padding: 1rem;
     }
 
     & .details__min {
         grid-area: min;
+        text-align: right;
+        font-size: 2.5rem;
     }
 
     & .details__max {
         grid-area: max;
+        font-size: 2.5rem;
     }
 
     & .details__wind {
@@ -38,9 +48,12 @@
 
     & .details__temp {
         grid-area: temp;
+        text-align: center;
+        font-size: 3rem;
     }
 
     & .details__humidity {
         grid-area: humidity;
+        text-align: right;
     }
 }
