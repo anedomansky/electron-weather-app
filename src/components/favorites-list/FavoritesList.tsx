@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import favoriteIcon from '../../assets/icons/favorite.svg';
 import deleteIcon from '../../assets/icons/bin.svg';
 import './FavoritesList.scss';

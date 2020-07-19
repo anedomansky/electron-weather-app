@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export interface IWeatherData {
     id: number;
     weather_state_name: string;

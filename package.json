@@ -11,7 +11,8 @@
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
     "react:start": "ts-node ./build/server.ts",
-    "react:build": "webpack --config ./build/webpack.prod.config.ts"
+    "react:build": "webpack --config ./build/webpack.prod.config.ts",
+    "test": "jest --collectCoverage"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,7 @@
     "electron-unhandled": "^3.0.2",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^5.15.4",
-    "mobx-react": "^6.2.2",
+    "mobx-react-lite": "^2.0.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-config": "^5.1.1",

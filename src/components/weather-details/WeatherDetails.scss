@@ -10,12 +10,11 @@
     grid-template-areas: 
     "location weather weather weather date"
     "min      weather weather weather max"
-    ". wind temp humidity .";
-    grid-template-columns: repeat(5, 1fr);
+    "wind . temp . humidity";
 
     & .details__location {
         grid-area: location;
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     & .details__weather {
@@ -23,37 +22,39 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        & img {
+            width: 350px;
+            height: auto;
+        }
     }
 
     & .details__date {
         grid-area: date;
         text-align: right;
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     & .details__min {
         grid-area: min;
         text-align: right;
-        font-size: 2.5rem;
     }
 
     & .details__max {
         grid-area: max;
-        font-size: 2.5rem;
     }
 
     & .details__wind {
         grid-area: wind;
+        text-align: right;
     }
 
     & .details__temp {
         grid-area: temp;
         text-align: center;
-        font-size: 3rem;
     }
 
     & .details__humidity {
         grid-area: humidity;
-        text-align: right;
     }
 }

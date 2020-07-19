@@ -22,7 +22,7 @@ const Search: React.FC = () => {
         <section className="search">
             <form onSubmit={(e): void => search(e)}>
                 <label htmlFor="search-input">
-                    <input id="search-input" type="text" className="search__input" pattern="[A-Za-z]+" onChange={(e): void => setLocation(e.target.value)} />
+                    <input id="search-input" type="text" className="search__input" pattern="[A-Za-z ]+" onChange={(e): void => setLocation(e.target.value)} />
                 </label>
                 <button type="submit" tabIndex={0} className="search__submit a11y-btn"><img src={searchIcon} alt="Search" /></button>
             </form>
