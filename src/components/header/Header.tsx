@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 
     return (
         <header>
-            <Link to="/search" tabIndex={0} className={`header__search-icon a11y-btn ${location.pathname === '/' ? 'hidden' : ''}`}><img src={searchIcon} alt="Search" /></Link>
+            <Link to="/search" tabIndex={0} className={`header__search-icon a11y-btn ${location.pathname === '/' && 'hidden'}`}><img src={searchIcon} alt="Search" /></Link>
             <Link to="/" tabIndex={0} className="header__heading a11y-btn"><h1>Weather-App</h1></Link>
             <FavoritesList />
         </header>

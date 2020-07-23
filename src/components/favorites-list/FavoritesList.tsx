@@ -24,6 +24,7 @@ const FavoritesList: React.FC = observer(() => {
                 {favoritesStore.currentFavorites.map((favorite) => (
                     <li key={`favorite-${favorite.location}`} className="dropdown-item">
                         <button
+                            data-testid="remove-btn"
                             type="button"
                             tabIndex={0}
                             className="a11y-btn"

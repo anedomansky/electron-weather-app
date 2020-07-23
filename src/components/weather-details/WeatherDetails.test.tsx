@@ -24,3 +24,9 @@ test('Renders the WeatherDetails component', () => {
     const { container } = render(<WeatherDetails details={data} />);
     expect(container).toBeInTheDocument();
 });
+
+test('Renders the location', () => {
+    const { container, getByText } = render(<WeatherDetails details={data} location="Test" />);
+    expect(container).toBeInTheDocument();
+    expect(getByText('Test')).toBeInTheDocument();
+});

@@ -4,3 +4,7 @@ export const ipcRenderer = {
     removeAllListeners: jest.fn(),
     send: jest.fn(),
 };
+
+export const shell = {
+    openExternal: jest.fn(),
+};
