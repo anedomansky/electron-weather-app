@@ -11,7 +11,6 @@ import showersIcon from '../assets/icons/showers.svg';
 import heavyCloudIcon from '../assets/icons/heavy_cloud.svg';
 import lightCloudIcon from '../assets/icons/light_cloud.svg';
 import clearIcon from '../assets/icons/clear.svg';
-import crossIcon from '../assets/icons/cross.svg';
 
 class ImageHelper implements IImageHelper {
     private static instance: IImageHelper;
@@ -19,7 +18,6 @@ class ImageHelper implements IImageHelper {
     weatherStates: IWeatherStates;
 
     constructor() {
-        ImageHelper.instance = this;
         this.weatherStates = {
             sn: snowIcon,
             sl: sleetIcon,
@@ -34,18 +32,15 @@ class ImageHelper implements IImageHelper {
         };
     }
 
-    static getInstance(): ImageHelper {
-        if (this.instance) {
-            return this.instance;
+    public static getInstance(): ImageHelper {
+        if (!ImageHelper.instance) {
+            ImageHelper.instance = new ImageHelper();
         }
-        return new ImageHelper();
+        return ImageHelper.instance;
     }
 
-    getWeatherIcon(weatherStateAbbr: string): string {
-        if (nameof<IWeatherStates>(weatherStateAbbr)) {
-            return this.weatherStates[weatherStateAbbr];
-        }
-        return crossIcon;
+    public getWeatherIcon(weatherStateAbbr: string): string {
+        return this.weatherStates[weatherStateAbbr];
     }
 }
 

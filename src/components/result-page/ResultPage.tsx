@@ -17,10 +17,9 @@ const ResultPage: React.FC = () => {
     const { location } = useParams();
     const [fetchError, setFetchError] = useState<boolean>(false);
     const [consolidatedWeatherData, setConsolidatedWeatherData] = useState<IWeatherData[] | null>(null);
-    const [updating, setUpdating] = useState<boolean>(true);
+    const [updating, setUpdating] = useState<boolean>(false);
 
     useEffect(() => {
-        setUpdating(true);
         ipcRenderer.send('/getWeatherData', location);
         ipcRenderer.on('WEATHER_DATA', (event: unknown, weatherData: IWeatherData[]) => {
             setConsolidatedWeatherData(weatherData);
@@ -39,7 +38,9 @@ const ResultPage: React.FC = () => {
     }, [location]);
 
     const addFavorite = (favoriteLocation: string) => {
-        favoritesStore.addFavoriteToLocalStorage(favoriteLocation);
+        if (favoriteLocation) {
+            favoritesStore.addFavoriteToLocalStorage(favoriteLocation);
+        }
     };
 
     return (
@@ -55,6 +56,7 @@ const ResultPage: React.FC = () => {
                             </div>
                             <div className="result-page__add">
                                 <button
+                                    data-testid="add-btn"
                                     className="a11y-btn"
                                     type="button"
                                     tabIndex={0}
