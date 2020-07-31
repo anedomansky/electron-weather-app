@@ -17,7 +17,7 @@ const ResultPage: React.FC = () => {
     const { location } = useParams();
     const [fetchError, setFetchError] = useState<boolean>(false);
     const [consolidatedWeatherData, setConsolidatedWeatherData] = useState<IWeatherData[] | null>(null);
-    const [updating, setUpdating] = useState<boolean>(false);
+    const [updating, setUpdating] = useState<boolean>(true);
 
     useEffect(() => {
         ipcRenderer.send('/getWeatherData', location);
