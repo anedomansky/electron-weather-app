@@ -1,5 +1,3 @@
-@import "../../mixins/Mixins.scss";
-
 .search-page {
     display: grid;
     grid-template-areas: 
@@ -7,8 +5,7 @@
     ". content content ."
     ". . . .";
 
-    & .a11y-btn {
-        @include a11y-btn;
+    & button {
         grid-area: close;
     }
 

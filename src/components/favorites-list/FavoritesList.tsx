@@ -5,6 +5,7 @@ import favoriteIcon from '../../assets/icons/favorite.svg';
 import deleteIcon from '../../assets/icons/bin.svg';
 import './FavoritesList.scss';
 import useStores from '../../hooks/useStores';
+import Button from '../button/Button';
 
 const FavoritesList: React.FC = observer(() => {
     const { favoritesStore } = useStores();
@@ -19,20 +20,18 @@ const FavoritesList: React.FC = observer(() => {
 
     return (
         <div className="favorite-dropdown">
-            <button type="button" tabIndex={0} className="a11y-btn"><img src={favoriteIcon} alt="Favorite" /></button>
+            <Button type="button"><img className="favorite" src={favoriteIcon} alt="Favorite" /></Button>
             <ul className="favorite-dropdown__list">
                 {favoritesStore.currentFavorites.map((favorite) => (
                     <li key={`favorite-${favorite.location}`} className="dropdown-item">
-                        <button
-                            data-testid="remove-btn"
+                        <Button
+                            testId="remove-btn"
                             type="button"
-                            tabIndex={0}
-                            className="a11y-btn"
                             onClick={() => removeFavorite(favorite.location)}
                             onKeyDown={(event) => (event.key === 'Enter' || event.keyCode === 13 ? removeFavorite(favorite.location) : null)}
                         >
                             <img src={deleteIcon} alt="Delete" />
-                        </button>
+                        </Button>
                         <Link to={`/result/${favorite.location.toLowerCase()}`}>
                             {favorite.location}
                         </Link>

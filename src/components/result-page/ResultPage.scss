@@ -1,5 +1,3 @@
-@import "../../mixins/Mixins.scss";
-
 .result-page {
     padding: 1rem;
     display: grid;
@@ -16,10 +14,6 @@
     & .result-page__add {
         grid-area: add;
         padding-left: 1rem;
-
-        & .a11y-btn {
-            @include a11y-btn;
-        }
 
         & img {
             width: 60px;

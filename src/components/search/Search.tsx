@@ -2,6 +2,7 @@ import React, { useState, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import searchIcon from '../../assets/icons/search.svg';
 import './Search.scss';
+import Button from '../button/Button';
 
 const Search: React.FC = () => {
     const history = useHistory();
@@ -24,7 +25,9 @@ const Search: React.FC = () => {
                 <label htmlFor="search-input">
                     <input data-testid="form-input" id="search-input" type="text" className="search__input" pattern="[A-Za-z ]+" onChange={(e): void => setLocation(e.target.value)} />
                 </label>
-                <button type="submit" tabIndex={0} className="search__submit a11y-btn"><img src={searchIcon} alt="Search" /></button>
+                <Button type="submit">
+                    <img className="search-icon" src={searchIcon} alt="Search" />
+                </Button>
             </form>
         </section>
     );

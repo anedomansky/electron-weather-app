@@ -8,6 +8,7 @@ import WeatherPreview from '../weather-preview/WeatherPreview';
 import addIcon from '../../assets/icons/plus.svg';
 import './ResultPage.scss';
 import useStores from '../../hooks/useStores';
+import Button from '../button/Button';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { ipcRenderer } = require('electron');
@@ -20,21 +21,16 @@ const ResultPage: React.FC = () => {
     const [updating, setUpdating] = useState<boolean>(true);
 
     useEffect(() => {
-        ipcRenderer.send('/getWeatherData', location);
-        ipcRenderer.on('WEATHER_DATA', (event: unknown, weatherData: IWeatherData[]) => {
-            setConsolidatedWeatherData(weatherData);
-            setUpdating(false);
-        });
-        ipcRenderer.on('NO_DATA', (event: unknown, msg: string) => {
-            console.error(msg);
-            setFetchError(true);
-            setUpdating(false);
-        });
-
-        return () => {
-            ipcRenderer.removeAllListeners('WEATHER_DATA');
-            ipcRenderer.removeAllListeners('NO_DATA');
-        };
+        ipcRenderer.invoke('/getWeatherData', location)
+            .then((weatherData: IWeatherData[]) => {
+                setConsolidatedWeatherData(weatherData);
+                setUpdating(false);
+            })
+            .catch((error: Error) => {
+                setFetchError(true);
+                setUpdating(false);
+                console.error(error);
+            });
     }, [location]);
 
     const addFavorite = (favoriteLocation: string) => {
@@ -55,16 +51,14 @@ const ResultPage: React.FC = () => {
                                 <WeatherDetails location={location} details={consolidatedWeatherData && consolidatedWeatherData[0]} />
                             </div>
                             <div className="result-page__add">
-                                <button
-                                    data-testid="add-btn"
-                                    className="a11y-btn"
+                                <Button
+                                    testId="add-btn"
                                     type="button"
-                                    tabIndex={0}
                                     onClick={() => addFavorite(location)}
                                     onKeyDown={(event) => (event.key === 'Enter' || event.keyCode === 13 ? addFavorite(location) : null)}
                                 >
                                     <img src={addIcon} alt="Add" />
-                                </button>
+                                </Button>
                             </div>
                             <div className="result-page__preview--1">
                                 <WeatherPreview previewData={consolidatedWeatherData && consolidatedWeatherData[1]} />

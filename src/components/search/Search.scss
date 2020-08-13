@@ -1,5 +1,3 @@
-@import "../../mixins/Mixins.scss";
-
 .search {
     display: flex;
     justify-content: center;
@@ -21,13 +19,12 @@
         }
     }
 
-    & .search__submit img {
+    & .search-icon {
         width: 60px;
         height: auto;
     }
 
-    & .a11y-btn {
-        @include a11y-btn;
+    & button {
         display: inline-block;
     }
 }

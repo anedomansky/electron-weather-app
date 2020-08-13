@@ -1,9 +1,6 @@
-@import "../../mixins/Mixins.scss";
-
 footer {
     padding: 0.25rem;
     & button {
-        @include a11y-btn;
         color: #203943;
         text-decoration: none;
     }
