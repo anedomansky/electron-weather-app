@@ -5,7 +5,7 @@ import './NoResult.scss';
 const NoResult: React.FC = () => (
     <article className="no-result">
         <div className="no-result__content">
-            <h1>
+            <h1 data-testid="no-result">
                 No results found!
                 <br />
                 Please try another

@@ -26,6 +26,10 @@ const data: IWeatherData[] = [{
     predictability: 90,
 }];
 
+beforeEach(() => {
+    jest.clearAllMocks();
+});
+
 test('Renders the ResultPage component', () => {
     const history = createMemoryHistory();
     const { container } = render(<Router history={history}><ResultPage /></Router>);
@@ -35,10 +39,22 @@ test('Renders the ResultPage component', () => {
 test('Does receive weather data', async () => {
     const history = createMemoryHistory();
     history.push('/result/Dortmund');
-    const { container, findByText } = render(<Router history={history}><Route path="/result/:location" component={ResultPage} /></Router>);
+    const { container, getByTestId, findByText } = render(<Router history={history}><Route path="/result/:location" component={ResultPage} /></Router>);
     expect(container).toBeInTheDocument();
-    await expect(ipcRenderer.invoke()).resolves.toEqual(data);
-    expect(await findByText('Dortmund')).toBeInTheDocument();
+    expect(ipcRenderer.invoke).toHaveBeenCalledWith('/getWeatherData', 'Dortmund');
+    expect(getByTestId('loading')).toBeInTheDocument();
+    await findByText('Dortmund');
+});
+
+test('Does not receive weather data', async () => {
+    const history = createMemoryHistory();
+    history.push('/result/TestCity');
+    const { container, getByTestId, findByTestId } = render(<Router history={history}><Route path="/result/:location" component={ResultPage} /></Router>);
+    expect(container).toBeInTheDocument();
+    expect(ipcRenderer.invoke).toHaveBeenCalledWith('/getWeatherData', 'TestCity');
+    expect(getByTestId('loading')).toBeInTheDocument();
+    await findByTestId('no-result');
+    expect(getByTestId('no-result')).toBeInTheDocument();
 });
 
 // test('Receives weather data', async () => {

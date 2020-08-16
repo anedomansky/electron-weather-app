@@ -18,10 +18,11 @@ const data = [{
 }];
 
 export const ipcRenderer = {
-    invoke: () => new Promise((resolve, reject) => {
-        process.nextTick(() => (data.length > 0
-            ? resolve(data)
-            : reject(new Error('Error'))));
+    invoke: jest.fn((channel, location) => {
+        if (location && location.length > 0 && location !== 'TestCity') {
+            return Promise.resolve(data);
+        }
+        return Promise.reject(new Error('Error'));
     }),
 };
 
