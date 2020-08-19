@@ -1,11 +1,13 @@
+@import "../../utilities/variables";
+
 .details {
     font-size: 2rem;
-    background: #203943 0% 0% no-repeat padding-box;
+    background: $green 0% 0% no-repeat padding-box;
     width: 100%;
     height: 100%;
-    border: 1px solid #203943;
+    border: 1px solid $green;
     border-radius: 15px;
-    box-shadow: 5px 5px 6px #b6b5b5;
+    box-shadow: 5px 5px 6px $boxShadow;
     display: grid;
     grid-template-areas: 
     "location weather weather weather date"

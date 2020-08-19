@@ -34,9 +34,7 @@ const ResultPage: React.FC = () => {
     }, [location]);
 
     const addFavorite = (favoriteLocation: string) => {
-        if (favoriteLocation) {
-            favoritesStore.addFavoriteToLocalStorage(favoriteLocation);
-        }
+        favoritesStore.addFavoriteToLocalStorage(favoriteLocation);
     };
 
     return (

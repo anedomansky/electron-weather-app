@@ -1,5 +1,7 @@
+@import "../../utilities/variables";
+
 header {
-    background: #203943 0% 0% no-repeat padding-box;
+    background: $green 0% 0% no-repeat padding-box;
     display: flex;
     align-items: center;
     justify-content: space-between;

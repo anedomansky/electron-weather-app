@@ -1,6 +1,5 @@
 import { IImageHelper } from '../interfaces/IImageHelper';
 import { IWeatherStates } from '../interfaces/IWeatherStates';
-import nameof from './nameof';
 import snowIcon from '../assets/icons/snow.svg';
 import sleetIcon from '../assets/icons/sleet.svg';
 import hailIcon from '../assets/icons/hail.svg';

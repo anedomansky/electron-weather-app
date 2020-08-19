@@ -1,3 +1,5 @@
+@import "../../utilities/variables";
+
 .content {
     min-width: 855px;
     height: 100vh;
@@ -16,11 +18,11 @@ header {
 
 main {
     grid-area: main;
-    background-color: #EAEAEA;
+    background-color: $grey;
     display: grid;
 }
 
 footer {
     grid-area: footer;
-    background-color: #EAEAEA;
+    background-color: $grey;
 }

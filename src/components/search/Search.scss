@@ -1,16 +1,18 @@
+@import "../../utilities/variables";
+
 .search {
     display: flex;
     justify-content: center;
 
     & .search__input {
         height: 4rem;
-        background-color: #203943;
+        background-color: $green;
         color: #ffffff;
         font-size: 2rem;
         line-height: 3.5rem;
-        border: 1px solid #203943;
+        border: 1px solid $green;
         border-radius: 15px;
-        box-shadow: 5px 5px 6px #b6b5b5;
+        box-shadow: 5px 5px 6px $boxShadow;
         padding: 0.5rem;
         float: left;
 

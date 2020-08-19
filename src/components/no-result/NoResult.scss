@@ -1,3 +1,5 @@
+@import "../../utilities/variables";
+
 .no-result {
     display: grid;
     grid-template-areas: 
@@ -9,7 +11,7 @@
         grid-area: content;
 
         & h1 {
-            color: #203943;
+            color: $green;
             text-align: center;
             font-size: 2rem;
 

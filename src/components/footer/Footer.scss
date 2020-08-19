@@ -1,7 +1,9 @@
+@import "../../utilities/variables";
+
 footer {
     padding: 0.25rem;
     & button {
-        color: #203943;
+        color: $green;
         text-decoration: none;
     }
 }

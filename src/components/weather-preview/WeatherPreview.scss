@@ -1,9 +1,11 @@
+@import "../../utilities/variables";
+
 .preview {
     padding: 0.5rem;
-    border: 1px solid #203943;
+    border: 1px solid $green;
     border-radius: 15px;
-    box-shadow: 5px 5px 6px #b6b5b5;
-    background: #203943 0% 0% no-repeat padding-box;
+    box-shadow: 5px 5px 6px $boxShadow;
+    background: $green 0% 0% no-repeat padding-box;
     display: flex;
     flex-direction: column;
     justify-content: center;

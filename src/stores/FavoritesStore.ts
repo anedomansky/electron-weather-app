@@ -18,11 +18,13 @@ class FavoritesStore {
 
     @action('Adds new favorites to the localStorage and updates the store.')
     addFavoriteToLocalStorage(favoriteLocation: string): void {
-        const newFavorite: IFavorite = {
-            location: favoriteLocation.replace(favoriteLocation[0], favoriteLocation[0].toUpperCase()),
-        };
-        window.localStorage.setItem('favorites', JSON.stringify([...this.favorites, newFavorite]));
-        this.updateCurrentFavoritesFromLocalStorage();
+        if (favoriteLocation) {
+            const newFavorite: IFavorite = {
+                location: favoriteLocation.replace(favoriteLocation[0], favoriteLocation[0].toUpperCase()),
+            };
+            window.localStorage.setItem('favorites', JSON.stringify([...this.favorites, newFavorite]));
+            this.updateCurrentFavoritesFromLocalStorage();
+        }
     }
 
     @action('Removes a favorite from the localStorage and updates the store.')
