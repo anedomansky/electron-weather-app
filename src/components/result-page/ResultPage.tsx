@@ -50,6 +50,7 @@ const ResultPage: React.FC = () => {
                             </div>
                             <div className="result-page__add">
                                 <Button
+                                    ariaLabel="add favorite"
                                     testId="add-btn"
                                     type="button"
                                     onClick={() => addFavorite(location)}

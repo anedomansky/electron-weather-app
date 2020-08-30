@@ -12,18 +12,22 @@ class FavoritesStore {
 
     @action('Checks the localStorage and updates the store.')
     updateCurrentFavoritesFromLocalStorage(): void {
-        const currentFavorites = JSON.parse(window.localStorage.getItem('favorites') || '[]');
+        const currentFavorites: IFavorite[] = JSON.parse(window.localStorage.getItem('favorites') || '[]');
         this.favorites = currentFavorites;
     }
 
     @action('Adds new favorites to the localStorage and updates the store.')
     addFavoriteToLocalStorage(favoriteLocation: string): void {
         if (favoriteLocation) {
-            const newFavorite: IFavorite = {
-                location: favoriteLocation.replace(favoriteLocation[0], favoriteLocation[0].toUpperCase()),
-            };
-            window.localStorage.setItem('favorites', JSON.stringify([...this.favorites, newFavorite]));
-            this.updateCurrentFavoritesFromLocalStorage();
+            const currentFavorites: IFavorite[] = JSON.parse(window.localStorage.getItem('favorites') || '[]');
+            const favoriteIsAlreadyInList = currentFavorites.find((favorite) => favorite.location.toLowerCase() === favoriteLocation.toLowerCase());
+            if (!favoriteIsAlreadyInList) {
+                const newFavorite: IFavorite = {
+                    location: favoriteLocation.replace(favoriteLocation[0], favoriteLocation[0].toUpperCase()),
+                };
+                window.localStorage.setItem('favorites', JSON.stringify([...this.favorites, newFavorite]));
+                this.updateCurrentFavoritesFromLocalStorage();
+            }
         }
     }
 

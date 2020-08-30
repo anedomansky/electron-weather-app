@@ -13,6 +13,7 @@
     "location weather weather weather date"
     "min      weather weather weather max"
     "wind . temp . humidity";
+    text-align: center;
 
     & .details__location {
         grid-area: location;
@@ -33,13 +34,11 @@
 
     & .details__date {
         grid-area: date;
-        text-align: right;
         padding: 0.5rem;
     }
 
     & .details__min {
         grid-area: min;
-        text-align: right;
     }
 
     & .details__max {
@@ -48,12 +47,10 @@
 
     & .details__wind {
         grid-area: wind;
-        text-align: right;
     }
 
     & .details__temp {
         grid-area: temp;
-        text-align: center;
     }
 
     & .details__humidity {

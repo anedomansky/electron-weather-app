@@ -13,6 +13,7 @@ const SearchPage: React.FC = () => {
                 testId="close-btn"
                 type="button"
                 onClick={(): void => history.goBack()}
+                ariaLabel="close search"
             >
                 <img src={closeIcon} alt="Close" height="60" />
             </Button>

@@ -10,10 +10,6 @@ header {
         background: none;
         border: none;
         cursor: pointer;
-
-        &:focus {
-            outline: none;
-        }
     }
 
     & .hidden {
@@ -30,7 +26,6 @@ header {
 
         & h1 {
             font-size: 2.5rem;
-            line-height: 45px;
             margin: 0;
             text-align: center;
             color: #FFFFFF;

@@ -2,10 +2,6 @@
     position: relative;
     display: inline-block;
 
-    &:hover .favorite-dropdown__list  {
-        display: block;
-    }
-
     & .favorite {
         width: 60px;
         height: auto;

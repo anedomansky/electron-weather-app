@@ -9,16 +9,11 @@
         background-color: $green;
         color: #ffffff;
         font-size: 2rem;
-        line-height: 3.5rem;
         border: 1px solid $green;
         border-radius: 15px;
         box-shadow: 5px 5px 6px $boxShadow;
         padding: 0.5rem;
         float: left;
-
-        &:focus {
-            outline: none;
-        }
     }
 
     & .search-icon {

@@ -25,7 +25,7 @@ const Search: React.FC = () => {
                 <label htmlFor="search-input">
                     <input data-testid="form-input" id="search-input" type="text" className="search__input" pattern="[A-Za-z ]+" onChange={(e): void => setLocation(e.target.value)} />
                 </label>
-                <Button type="submit">
+                <Button type="submit" ariaLabel="start search">
                     <img className="search-icon" src={searchIcon} alt="Search" />
                 </Button>
             </form>

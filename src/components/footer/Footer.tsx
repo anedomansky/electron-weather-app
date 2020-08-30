@@ -13,6 +13,7 @@ const Footer: React.FC = () => {
     return (
         <footer>
             <Button
+                ariaLabel="visit metaweather.com"
                 type="button"
                 onClick={handleExternalLink}
                 onKeyDown={(e) => ((e.key === 'Enter' || e.keyCode === 13) ? handleExternalLink() : null)}
