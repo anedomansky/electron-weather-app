@@ -6,6 +6,7 @@
     ". details details details details ."
     ". preview-1 preview-2 preview-3 preview-4 .";
     grid-gap: 1rem;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr auto;
 
     & .result-page__details {
         grid-area: details;

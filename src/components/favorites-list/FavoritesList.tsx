@@ -48,7 +48,7 @@ const FavoritesList: React.FC = observer(() => {
                         >
                             <img src={deleteIcon} alt="Delete" />
                         </Button>
-                        <Link tabIndex={0} to={`/result/${favorite.location.toLowerCase()}`}>
+                        <Link tabIndex={0} to={`/result/${favorite.location.toLowerCase()}`} onClick={() => setShow(!show)}>
                             {favorite.location}
                         </Link>
                     </li>
