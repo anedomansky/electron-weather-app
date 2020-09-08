@@ -2,6 +2,8 @@ import React from 'react';
 import { IWeatherData } from '../../interfaces/IWeatherData';
 import './WeatherDetails.scss';
 import ImageHelper from '../../helpers/ImageHelper';
+import arrowIcon from '../../assets/icons/arrow.svg';
+import humidityIcon from '../../assets/icons/humidity.svg';
 
 interface Props {
     details: IWeatherData | null;
@@ -36,19 +38,15 @@ const WeatherDetails: React.FC<Props> = ({ details, location }) => (
                     </span>
                 </div>
                 <div className="details__wind">
-                    <span className="compass-icon">{details.wind_direction_compass}</span>
-                    <br />
+                    <img className={`compass-icon compass-icon--${details.wind_direction_compass}`} src={arrowIcon} alt="Compass arrow" />
                     <span className="wind-speed">{`${Math.floor(details.wind_speed * 1.60934)} km/h`}</span>
                 </div>
                 <div className="details__temp">
                     <span>{`${Math.floor(details.the_temp)} °C`}</span>
                 </div>
                 <div className="details__humidity">
-                    <span>
-                        {`${details.humidity} %`}
-                        <br />
-                        Humidity
-                    </span>
+                    <img src={humidityIcon} alt="Humidity" />
+                    <span>{`${details.humidity} %`}</span>
                 </div>
             </>
         )}

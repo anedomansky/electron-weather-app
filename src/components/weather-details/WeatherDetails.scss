@@ -47,6 +47,76 @@
 
     & .details__wind {
         grid-area: wind;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .compass-icon {
+            width: 4rem;
+            height: auto;
+
+            $rotation: 22.5deg;
+
+            &--NNE {
+                transform: rotate($rotation);
+            }
+
+            &--NE {
+                transform: rotate($rotation * 2);
+            }
+
+            &--ENE {
+                transform: rotate($rotation * 3);
+            }
+
+            &--E {
+                transform: rotate($rotation * 4);
+            }
+
+            &--ESE {
+                transform: rotate($rotation * 5);
+            }
+
+            &--SE {
+                transform: rotate($rotation * 6);
+            }
+
+            &--SSE {
+                transform: rotate($rotation * 7);
+            }
+
+            &--S {
+                transform: rotate($rotation * 8);
+            }
+
+            &--SSW {
+                transform: rotate($rotation * 9);
+            }
+
+            &--SW {
+                transform: rotate($rotation * 10);
+            }
+
+            &--WSW {
+                transform: rotate($rotation * 11);
+            }
+
+            &--W {
+                transform: rotate($rotation * 12);
+            }
+
+            &--WNW {
+                transform: rotate($rotation * 13);
+            }
+
+            &--NW {
+                transform: rotate($rotation * 14);
+            }
+
+            &--NNW {
+                transform: rotate($rotation * 15);
+            }
+        }
     }
 
     & .details__temp {
@@ -55,5 +125,13 @@
 
     & .details__humidity {
         grid-area: humidity;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 4rem;
+            height: auto;
+        }
     }
 }
