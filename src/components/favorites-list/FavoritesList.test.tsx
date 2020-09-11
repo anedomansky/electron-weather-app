@@ -17,6 +17,22 @@ test('Fires the onClick event', () => {
     fireEvent.click(getByTestId('remove-btn'));
 });
 
+test('Fires the onClick event on menu-btn', () => {
+    const favoritesStore = new FavoritesStore();
+    favoritesStore.addFavoriteToLocalStorage('Test');
+    const { container, getByTestId } = render(<HashRouter><FavoritesList /></HashRouter>);
+    expect(container).toBeInTheDocument();
+    fireEvent.click(getByTestId('menu-btn'));
+});
+
+test('Fires the onClick event on Link', () => {
+    const favoritesStore = new FavoritesStore();
+    favoritesStore.addFavoriteToLocalStorage('Test');
+    const { container, getByText } = render(<HashRouter><FavoritesList /></HashRouter>);
+    expect(container).toBeInTheDocument();
+    fireEvent.click(getByText('Test'));
+});
+
 test('Fires the onKeyDown event', () => {
     const favoritesStore = new FavoritesStore();
     favoritesStore.addFavoriteToLocalStorage('Test');

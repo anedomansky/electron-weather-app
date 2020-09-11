@@ -35,7 +35,7 @@ const FavoritesList: React.FC = observer(() => {
 
     return (
         <div className="favorite-dropdown" ref={ref}>
-            <Button type="button" ariaLabel="favorite menu" onClick={() => setShow(!show)}><img className="favorite" src={favoriteIcon} alt="Favorite" /></Button>
+            <Button testId="menu-btn" type="button" ariaLabel="favorite menu" onClick={() => setShow(!show)}><img className="favorite" src={favoriteIcon} alt="Favorite" /></Button>
             <ul className={`favorite-dropdown__list ${show && 'show'}`}>
                 {favoritesStore.currentFavorites.map((favorite) => (
                     <li key={`favorite-${favorite.location}`} className="dropdown-item">

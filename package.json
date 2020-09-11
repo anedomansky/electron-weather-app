@@ -106,7 +106,20 @@
       "node_modules/**/*"
     ],
     "directories": {
-      "output": "release"
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "src/assets/images/app.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "src/assets/images/app.png"
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "src/assets/images/app.png"
     }
   }
 }
