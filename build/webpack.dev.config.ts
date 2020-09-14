@@ -7,7 +7,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import baseConfig from './webpack.base.config';
 
 const devConfig: webpack.Configuration = {
-    devtool: 'eval-source-map',
+    devtool: 'cheap-source-map',
     entry: {
         app: ['webpack-hot-middleware/client', './src/index.tsx'],
     },

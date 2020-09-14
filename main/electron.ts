@@ -31,6 +31,7 @@ const createWindow = async (): Promise<void> => {
         height: 800,
         webPreferences: {
             nodeIntegration: true,
+            enableRemoteModule: false,
         },
     });
 
