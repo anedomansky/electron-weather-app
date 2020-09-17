@@ -13,6 +13,7 @@
     "react:start": "ts-node ./build/server.ts",
     "react:build": "webpack --config ./build/webpack.prod.config.ts",
     "test": "jest --collectCoverage",
+    "testCoveralls": "jest --collectCoverage && coveralls < coverage/lcov.info",
     "build": "npm run react:build && npm run electron:build"
   },
   "repository": {
